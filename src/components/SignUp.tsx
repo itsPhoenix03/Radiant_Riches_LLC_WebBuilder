@@ -10,7 +10,7 @@ function SignUp() {
         <input
           type="text"
           name="sign-up"
-          className="bg-white w-[348px] h-full py-4 px-2 rounded-l-xl"
+          className="outline-none bg-white w-[348px] h-full py-4 px-2 rounded-l-xl border border-actionColor/20"
         />
         <button className="bg-actionColor text-white font-light px-5 py-4 text-sm rounded-r-xl">
           Sign Up

@@ -54,8 +54,11 @@ const CountriesSwitchComponent = () => {
       {/* A Dummy Image Component for showing countries flag */}
       <div className="w-8 h-8 rounded-full bg-primaryBackground" />
 
-      <select className="bg-transparent font-light outline-none">
-        <option value="United States" className="" selected>
+      <select
+        className="bg-transparent font-light outline-none"
+        defaultValue={"United States"}
+      >
+        <option value="United States" className="">
           United States
         </option>
         <option value="India" className="">
@@ -75,7 +78,7 @@ const CountriesSwitchComponent = () => {
 // Footer Component
 function Footer() {
   return (
-    <footer className="w-full h-[452px] bg-secondaryBackground border-4 border-white">
+    <footer className="w-full h-[452px] bg-secondaryBackground border-4 border-secondaryBackground">
       <div className="m-auto mt-14 max-w-[1024px] text-[#D1D6DA] text-sm flex justify-evenly items-start gap-6">
         <CategoriesComponent />
         <ContactComponent />
