@@ -75,7 +75,7 @@ function MainCard({
 
   return (
     <div
-      className="relative bg-white rounded-xl w-full px-2 flex justify-center items-stretch gap-4 border border-transparent hover:border-labelColor/20
+      className="relative bg-white rounded-xl w-full px-2 flex flex-col sm:flex-row justify-center items-stretch gap-4 border border-transparent hover:border-labelColor/20
     shadow-2xl shadow-neutral-200 hover:shadow-labelColor/20 transition-all duration-500 ease-in-out"
     >
       {/* Labels */}
@@ -84,20 +84,20 @@ function MainCard({
       <IndexComponent index={index} />
 
       {/* Image Container */}
-      <div className="w-1/4 my-auto space-y-2 text-center">
+      <div className="w-full sm:w-1/4 my-auto space-y-2 text-center">
         <Image
           src={data.image}
           alt="course image"
           width={150}
           height={150}
-          className="mx-auto object-cover"
+          className="mx-auto w-auto h-auto object-cover"
           loading="lazy"
         />
         <p className="text-[#626E79] text-xs">{data.imageLabel}</p>
       </div>
 
       {/* Details */}
-      <div className="text-secondaryFontColor text-base w-1/2 my-2">
+      <div className="text-secondaryFontColor text-base w-full sm:w-1/2 my-2">
         {/* Title and Description */}
         <p className="">
           <span className="font-bold">{data.title.trim()}-</span>&nbsp;
@@ -151,8 +151,8 @@ function MainCard({
       </div>
 
       {/* Ratings */}
-      <div className="w-1/4 flex flex-col justify-between items-center gap-8">
-        <div className="w-3/5 pb-8 rounded-b-lg bg-actionColorLightShade text-center text-[#074786]">
+      <div className="w-full sm:w-1/4 flex flex-col justify-between items-center gap-8">
+        <div className="w-4/5 sm:w-3/4 lg:w-3/5 pb-8 rounded-lg sm:rounded-b-lg bg-actionColorLightShade text-center text-[#074786]">
           <p className="text-[32px]">{data.overallRating}</p>
           <p className="text-sm">{data.choiceLabel}</p>
 
@@ -166,7 +166,7 @@ function MainCard({
         </div>
 
         <button
-          className="w-full mb-4 px-12 py-3 rounded-xl border border-transparent bg-actionColor text-white shadow-actionColor shadow-md hover:bg-transparent hover:text-actionColor 
+          className="w-full sm:w-11/12 lg:w-10/12 sm:text-sm lg:text-base mb-4 py-2  lg:py-3 rounded-xl border border-transparent bg-actionColor text-white shadow-actionColor shadow-md hover:bg-transparent hover:text-actionColor 
           hover:border-actionColor/20 hover:shadow-neutral-100 transition-all duration-300 ease-in-out
         "
         >

@@ -50,7 +50,7 @@ const ContactComponent = () => {
 // Countries Switch Component
 const CountriesSwitchComponent = () => {
   return (
-    <div className="flex justify-start items-center gap-2 my-auto text-[#B6BDC4]">
+    <div className="flex justify-start items-center gap-2 my-auto mb-32 sm:mb-0 text-[#B6BDC4]">
       {/* A Dummy Image Component for showing countries flag */}
       <div className="w-8 h-8 rounded-full bg-primaryBackground" />
 
@@ -78,8 +78,8 @@ const CountriesSwitchComponent = () => {
 // Footer Component
 function Footer() {
   return (
-    <footer className="w-full h-[452px] bg-secondaryBackground border-4 border-secondaryBackground">
-      <div className="m-auto mt-14 max-w-[1024px] text-[#D1D6DA] text-sm flex justify-evenly items-start gap-6">
+    <footer className="w-full h-auto sm:h-[452px] bg-secondaryBackground border-4 border-secondaryBackground">
+      <div className="m-auto mt-14 max-w-[1024px] text-[#D1D6DA] text-xs sm:text-sm flex flex-wrap justify-evenly items-start gap-10 sm:gap-6">
         <CategoriesComponent />
         <ContactComponent />
         <CountriesSwitchComponent />
