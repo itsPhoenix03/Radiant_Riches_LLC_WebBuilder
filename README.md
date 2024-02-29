@@ -1,6 +1,6 @@
 ## Web Builder Project
 
-This is the assignment project for Radient Richies LLC.
+This is the assignment project for Radiant Riches LLC.
 
 #### Technologies Used in the Project
 
