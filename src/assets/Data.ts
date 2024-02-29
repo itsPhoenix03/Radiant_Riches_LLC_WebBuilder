@@ -9,6 +9,7 @@ export type Data = {
         benefits: string[];
       };
   image: string;
+  imageLabel: string;
   overallRating: number;
   stars: number;
   choiceLabel: string;
@@ -23,6 +24,7 @@ export const data: Data[] = [
     mainHighlight:
       "[What You Get]: Receive the WixPro website builder suite, access to premium design templates, an extensive library of widgets and apps, and detailed step-by-step guides.",
     image: "/default-course-image.png",
+    imageLabel: "Builder 1",
     overallRating: 9.8,
     stars: 5,
     choiceLabel: "Exceptional",
@@ -34,6 +36,7 @@ export const data: Data[] = [
     mainHighlight:
       "[What You Get]: Gain access to the SiteCraft design studio, featuring a robust selection of design elements, SEO optimization tools, and e-commerce integrations.",
     image: "/default-course-image.png",
+    imageLabel: "Builder",
     overallRating: 9.5,
     stars: 4.5,
     choiceLabel: "Excellent",
@@ -45,6 +48,7 @@ export const data: Data[] = [
     mainHighlight:
       "[What You Get]: Receive the WixPro website builder suite, access to premium design templates, an extensive library of widgets and apps, and detailed step-by-step guides.",
     image: "/default-course-image.png",
+    imageLabel: "Builder 1",
     overallRating: 9.3,
     stars: 4.5,
     choiceLabel: "Excellent",
@@ -62,6 +66,7 @@ export const data: Data[] = [
       benefits: ["Documentation", "Easy Use", "Out Of Box"],
     },
     image: "/default-course-image.png",
+    imageLabel: "CDK",
     overallRating: 9.1,
     stars: 4,
     choiceLabel: "Very Good",

@@ -11,7 +11,7 @@ function Navbar() {
           <input
             type="text"
             name="search"
-            placeholder="Search for a website builder now..."
+            placeholder="Search for a website builder here..."
             className="w-full outline-none text-primaryFontColor placeholder:text-xs"
           />
         </div>

@@ -33,7 +33,7 @@ function RelatedDealsCard() {
       </p>
 
       <div className="flex justify-start items-center gap-1">
-        <span className="text-xl">$39.96</span>
+        <span className="text-xl font-semibold">$39.96</span>
         <span className="text-sm line-through">$49.96</span>
         <span className="text-sm text-[#EF4C5D]">(20% Off)</span>
       </div>

@@ -1,6 +1,17 @@
 import { Data } from "@/assets/Data";
 import Image from "next/image";
-import { CheckMark, Diamond, DropDown, Star, Trophy } from "./Icons";
+import {
+  BlankStar,
+  CheckMark,
+  Diamond,
+  DropDown,
+  HalfStar,
+  Star,
+  Trophy,
+} from "./Icons";
+
+// Type for Stars Array
+type StarType = "filled" | "half" | "blank";
 
 const BestChoiceComponent = () => (
   <div className="absolute top-3 left-0 py-2 px-2 rounded-r-lg bg-labelColor shadow-lg shadow-labelColor/50 text-white text-sm flex justify-evenly items-center gap-2">
@@ -33,9 +44,38 @@ function MainCard({
   isBestChoice?: boolean;
   isBestValue?: boolean;
 }) {
+  // Rating Star Calculate Function
+  function calculateStars(overallRating: number) {
+    const maxRating = 5;
+    const rating = Math.min(overallRating, maxRating); // Ensure rating doesn't exceed maxRating
+    const filledStars = Math.floor(rating);
+    const halfStar = rating - filledStars >= 0.5 ? 1 : 0;
+    const blankStar = maxRating - filledStars - halfStar;
+
+    const stars: StarType[] = [];
+
+    // Filled stars
+    for (let i = 0; i < filledStars; i++) {
+      stars.push("filled");
+    }
+
+    // Half star
+    if (halfStar === 1) {
+      stars.push("half");
+    }
+
+    // Black stars
+    for (let i = 0; i < blankStar; i++) {
+      stars.push("blank");
+    }
+    return stars;
+  }
+
+  const starRating = calculateStars(data.stars);
+
   return (
     <div
-      className="relative bg-white rounded-xl w-full px-2 flex justify-center items-start gap-4 border border-transparent hover:border-labelColor/20
+      className="relative bg-white rounded-xl w-full px-2 flex justify-center items-stretch gap-4 border border-transparent hover:border-labelColor/20
     shadow-2xl shadow-neutral-200 hover:shadow-labelColor/20 transition-all duration-500 ease-in-out"
     >
       {/* Labels */}
@@ -53,7 +93,7 @@ function MainCard({
           className="mx-auto object-cover"
           loading="lazy"
         />
-        <p className="text-[#626E79] text-sm">Builder</p>
+        <p className="text-[#626E79] text-xs">{data.imageLabel}</p>
       </div>
 
       {/* Details */}
@@ -73,6 +113,8 @@ function MainCard({
         {/* Main Highlights */}
         <div className="">
           <p className="font-bold my-1">Main Highlights</p>
+
+          {/* Based on the type of mainHighlight render a component [Type Narrowing] */}
           {typeof data.mainHighlight === "string" ? (
             <p className="text-sm">{data.mainHighlight}</p>
           ) : (
@@ -95,7 +137,7 @@ function MainCard({
                     key={index}
                     className="flex justify-start items-center gap-2 text-sm my-1"
                   >
-                    <CheckMark />
+                    <CheckMark fill={"#61ed66"} />
                     <span>{benefit}</span>
                   </div>
                 ))}
@@ -109,19 +151,25 @@ function MainCard({
       </div>
 
       {/* Ratings */}
-      <div className="w-1/4 h-full flex flex-col justify-between items-center gap-8">
+      <div className="w-1/4 flex flex-col justify-between items-center gap-8">
         <div className="w-3/5 pb-8 rounded-b-lg bg-actionColorLightShade text-center text-[#074786]">
           <p className="text-[32px]">{data.overallRating}</p>
           <p className="text-sm">{data.choiceLabel}</p>
+
           <div className="mt-2 flex justify-center items-center gap-1">
-            {/* TODO: Create the functionality for rating stars */}
-            {new Array(5).fill(0).map((item, index) => (
-              <Star key={index} />
-            ))}
+            {starRating.map((icon, index) => {
+              if (icon === "filled") return <Star key={index} />;
+              if (icon === "half") return <HalfStar key={index} />;
+              return <BlankStar key={index} />;
+            })}
           </div>
         </div>
 
-        <button className="w-full px-12 py-3 rounded-xl bg-actionColor text-white shadow-actionColor shadow-md">
+        <button
+          className="w-full mb-4 px-12 py-3 rounded-xl border border-transparent bg-actionColor text-white shadow-actionColor shadow-md hover:bg-transparent hover:text-actionColor 
+          hover:border-actionColor/20 hover:shadow-neutral-100 transition-all duration-300 ease-in-out
+        "
+        >
           View
         </button>
       </div>
